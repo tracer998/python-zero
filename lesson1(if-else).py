@@ -131,9 +131,77 @@
         
 # lead_scorer()
 
-cliens = ['Ivan','Petr']
+# clients = ["Иван", "Пётр", "Анна"]
+
+# for client in clients:
+#     print(client)
+
+# for i in range(5):
+#     print(i)
+
+# password = ""
+
+# while password != "admin123":
+#     password = input("Введите пароль: ")
 
 
+# задача 1,без списка
+client_count = int(input('Введите количество клиентов:'))
 
+def clients(client_count):
+    print('Задача 1')
+    # print("client_count:",client_count)
+    for x in range(client_count):
+        name = input('Введите имя клиента:')
+        print(f"Клиент {x+1}:",name)
+
+        
+clients(client_count)
+
+# задача 2,бро я позволил себе немного усложнить задачу,
+# добавил функцию,список и имена и вывод клиентов
+# программа учета клиентов
+client_count2 = int(input('Введите количество клиентов:'))
+
+def clients_all(client_count2):
+    print('Задача 2')
+    hot_count = 0
+    warm_count = 0
+    cold_count = 0
+    client_name_list = []
+
+    for i in range(client_count2):
+        print(f'Заявка N{i+1}')
+
+        budget = int(input("Бюджет: "))
+        # strip() удаляет лишние пробелы, табуляции и 
+        # символы перевода строки с начала и конца введенной строки
+        urgency = input("Срочность: ").strip().lower()
+        name = input(f'Имя клиента:')
+        client_name_list.append(name)
+
+        if budget >= 1000 and urgency == "высокая":
+            status = 'HOT'
+            hot_count += 1
+        elif budget >= 500 or urgency == "средняя":
+            status = 'WARM'
+            warm_count += 1
+        else:
+            status = 'COLD'
+            cold_count += 1
+
+        print(f'Имя клиента:{name},','Статус заявки:{status}')
+
+    print(f"HOT заявок: {hot_count}")
+    print(f"WARM заявок: {warm_count}")
+    print(f"COLD заявок: {cold_count}")
+    print('client_name_list',client_name_list)
+
+    return client_name_list
+
+names = clients_all(client_count2)
+
+for client in names:
+    print('Имя клиента: ',client)
 
 
